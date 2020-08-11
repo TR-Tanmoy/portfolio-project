@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>T.R. Tanmoy</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -57,44 +57,25 @@
             <a class="nav-item nav-link" href="http://twitter.com/trtanmoy1">Twitter </a>
             <a class="nav-item nav-link" href="http://www.facebook.com/ttanmoy2">Facebook</a>
             <a class="nav-item nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           </div>
         </div>
       </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi,I'm Tanmoy.</h1>
-      <p class="lead text-muted">Hey, my name is Md. Tawhidur Rahman Tanmoy and I'm studying Engineering at NUBTK at depertment of Computer Science and Engineering.I like sports very much.And i love to make Django website.</p>
-      <p>
-        <a href="mailto:trtanmoy1@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img src="{% static 'A15000.jpg' %}" height="300" />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+  <div class="container">
 
 
-      </div>
-    </div>
+
+  <h1 class="text-center pt-3">{{ blog.title }}</h1>
+  <p class="text-center">{{ blog.pub_date }}</p>
+  <img class="img-fluid" src="{{ blog.image.url }}"  />
+  <br />
+  <br />
+  <p>{{ blog.body }}</p>
+
+
   </div>
 
 </main>
